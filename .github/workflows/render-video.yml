@@ -2,14 +2,19 @@ name: Render video
 on:
   workflow_dispatch:
     inputs:
-      titleText:
-        description: "Which text should it say?"
+      name:
+        description: "Name of the person"
         required: true
-        default: "Welcome to Remotion"
-      titleColor:
-        description: "Which color should it be in?"
+        default: "John Doe"
+      image:
+        description: "Image of the person"
         required: true
-        default: "black"
+        default: "https://st.depositphotos.com/1597387/1984/i/600/depositphotos_19841901-stock-photo-asian-young-business-man-close.jpg"
+      achievements:
+        description: "List of the achievements"
+        required: true
+        default: ""
+
 jobs:
   render:
     name: Render video
@@ -26,5 +31,5 @@ jobs:
       - run: npm run build -- --props="./input-props.json"
       - uses: actions/upload-artifact@v2
         with:
-          name: out.mp4
-          path: out/video.mp4
+          name: result.gif
+          path: out/result.gif
