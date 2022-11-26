@@ -29,7 +29,7 @@ export const Image: React.FC<{image: string}> = ({image}) => {
 
 	return (
 		<AbsoluteFill style={{transform: `translateY(${translation}%)`, opacity}}>
-			<Img src={image} />
+			<Img src={image} style={{objectFit: 'cover', height: '100%'}} />
 		</AbsoluteFill>
 	);
 };

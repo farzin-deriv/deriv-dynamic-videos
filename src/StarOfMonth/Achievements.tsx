@@ -19,7 +19,7 @@ export const Achievements: React.FC<{achievements: string}> = ({
 				bottom: 0,
 			}}
 		>
-			{achievements.split('\n').map((achievement, index) => {
+			{achievements.split('|').map((achievement, index) => {
 				const delay = index * 25;
 
 				const translation = interpolate(
@@ -39,7 +39,7 @@ export const Achievements: React.FC<{achievements: string}> = ({
 
 				return (
 					<span
-						key={achievement}
+						key={achievement.trim()}
 						style={{
 							marginLeft: 10,
 							marginRight: 10,
@@ -48,7 +48,7 @@ export const Achievements: React.FC<{achievements: string}> = ({
 							opacity,
 						}}
 					>
-						- {achievement}
+						- {achievement.trim()}
 					</span>
 				);
 			})}

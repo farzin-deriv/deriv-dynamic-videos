@@ -13,7 +13,7 @@ on:
       achievements:
         description: "List of the achievements"
         required: true
-        default: "Achievement A\nAchievement B\nAchievement C\n"
+        default: "Achievement A | Achievement B | Achievement C | Achievement D"
 
 jobs:
   render:
