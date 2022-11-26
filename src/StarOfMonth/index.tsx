@@ -8,7 +8,7 @@ import {Title} from './Title';
 export const StarOfMonth: React.FC<{
 	name: string;
 	image: string;
-	achievements: string[];
+	achievements: string;
 }> = ({name, image, achievements}) => {
 	return (
 		<Container>

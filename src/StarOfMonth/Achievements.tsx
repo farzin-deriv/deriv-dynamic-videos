@@ -2,7 +2,7 @@ import {loadFont} from '@remotion/google-fonts/IBMPlexSans';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 const {fontFamily} = loadFont();
 
-export const Achievements: React.FC<{achievements: string[]}> = ({
+export const Achievements: React.FC<{achievements: string}> = ({
 	achievements,
 }) => {
 	const frame = useCurrentFrame();
@@ -19,7 +19,7 @@ export const Achievements: React.FC<{achievements: string[]}> = ({
 				bottom: 0,
 			}}
 		>
-			{achievements.map((achievement, index) => {
+			{achievements.split('\n').map((achievement, index) => {
 				const delay = index * 25;
 
 				const translation = interpolate(
