@@ -13,7 +13,6 @@ export const Achievements: React.FC<{achievements: string}> = ({
 			style={{
 				fontFamily,
 				fontSize: 16,
-				fontWeight: 'lighter',
 				color: '#ffffff',
 				position: 'absolute',
 				bottom: 0,
@@ -41,6 +40,7 @@ export const Achievements: React.FC<{achievements: string}> = ({
 					<span
 						key={achievement.trim()}
 						style={{
+							width: '100%',
 							marginLeft: 10,
 							marginRight: 10,
 							display: 'inline-block',
