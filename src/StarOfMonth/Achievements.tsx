@@ -6,13 +6,13 @@ export const Achievements: React.FC<{achievements: string}> = ({
 	achievements,
 }) => {
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
+	const videoConfig = useVideoConfig();
 
 	return (
 		<p
 			style={{
 				fontFamily,
-				fontSize: 16,
+				fontSize: videoConfig.width / 25,
 				color: '#ffffff',
 				position: 'absolute',
 				bottom: 0,
@@ -24,7 +24,7 @@ export const Achievements: React.FC<{achievements: string}> = ({
 				const translation = interpolate(
 					spring({
 						frame: frame - delay,
-						fps,
+						fps: videoConfig.fps,
 						config: {damping: 100},
 					}),
 					[0, 1],

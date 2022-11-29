@@ -2,15 +2,17 @@ import {Composition, registerRoot} from 'remotion';
 import {StarOfMonth} from './StarOfMonth';
 
 export const RemotionRoot: React.FC = () => {
+	const size = 512;
+
 	return (
 		<>
 			<Composition
 				id="StarOfMonth"
 				component={StarOfMonth}
-				durationInFrames={300}
+				durationInFrames={500}
 				fps={60}
-				width={400}
-				height={400}
+				width={size}
+				height={size}
 				defaultProps={{
 					name: 'John Doe',
 					image:

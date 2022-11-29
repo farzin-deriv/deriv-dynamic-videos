@@ -5,13 +5,13 @@ const {fontFamily} = loadFont();
 export const Title: React.FC<{name: string}> = ({name}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
-	const words = name.split(' ');
+	const words = name.trim().split(' ');
 
 	return (
 		<h1
 			style={{
 				fontFamily,
-				fontSize: 50,
+				fontSize: videoConfig.width / 8,
 				fontWeight: 'bold',
 				color: '#ffffff',
 			}}
