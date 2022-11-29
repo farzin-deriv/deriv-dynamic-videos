@@ -12,11 +12,11 @@ export const RemotionRoot: React.FC = () => {
 				width={400}
 				height={400}
 				defaultProps={{
-					name: 'Mohsen Hajibeigloo',
+					name: 'John Doe',
 					image:
-						'https://ca.slack-edge.com/T0D277EE5-U0368QUK0AE-f07f41cec867-512',
+						'https://st.depositphotos.com/1597387/1984/i/600/depositphotos_19841901-stock-photo-asian-young-business-man-close.jpg',
 					achievements:
-						"Rightful heir to the Throne of La La Land [Right to left translations] | Has taken mentorship program to a whole new level | Plays Beethoven's creation in one hand, while the other one is writing code",
+						'Achievement A | Achievement B | Achievement C | Achievement D | Achievement E | Achievement F',
 				}}
 			/>
 		</>

@@ -1,5 +1,9 @@
 name: Render video
 on:
+  repository_dispatch:
+    types:
+      - webhook
+
   workflow_dispatch:
     inputs:
       name:
