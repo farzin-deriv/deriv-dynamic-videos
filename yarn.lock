@@ -138,21 +138,21 @@
     source-map "0.6.1"
 
 "@remotion/eslint-config@^3.0.0":
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/@remotion/eslint-config/-/eslint-config-3.3.4.tgz#c55ca346db3dac181d248b517353c9d7b1fa2c53"
-  integrity sha512-DXwFj1SWUyUsav6n/3HHxwynagZQYVImBOuD95/q+MAPwAqV/ni7+A2tdcGJQWrGnuFn2khYijQFK2NlMFOh5A==
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/@remotion/eslint-config/-/eslint-config-3.3.5.tgz#8a26f5fabe5813af44d118a159acf209e9509001"
+  integrity sha512-RMVe7XTHQCChHdpThQ21rMhbozkihJgppoIDvB9FMGWXWuL14pTSlFe3hE2ZYLlOcEwIGjC7/cBGri1cKpzTCg==
   dependencies:
-    "@remotion/eslint-plugin" "3.3.4"
+    "@remotion/eslint-plugin" "3.3.5"
     "@typescript-eslint/eslint-plugin" "5.19.0"
     "@typescript-eslint/parser" "5.19.0"
     eslint-plugin-10x "1.5.2"
     eslint-plugin-react "7.29.4"
     eslint-plugin-react-hooks "4.4.0"
 
-"@remotion/eslint-plugin@3.3.4":
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/@remotion/eslint-plugin/-/eslint-plugin-3.3.4.tgz#b48f208cc52c94819248b69ad749399c350bc0da"
-  integrity sha512-A0f0U/hGx8GqtOfYW0pUjhcmw2KKZAprtsM2HBvfRhMFoKC9bek2siS1ekI5CtRKhE7F5RYZwQpuVpNSQFBBvA==
+"@remotion/eslint-plugin@3.3.5":
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/@remotion/eslint-plugin/-/eslint-plugin-3.3.5.tgz#a0d5fc96dd5b7eb0478fcabd994108d64ddc608a"
+  integrity sha512-dleuavWN+RrQTVO/Yisu1UxMzlgEHWfHVbGavzk1f+KEO0yKNY7HgDo77Pwn9Y+apvUmpHqNQ2AwFMT7ZosHEQ==
   dependencies:
     "@typescript-eslint/utils" "5.19.0"
 
@@ -1364,9 +1364,9 @@ icss-utils@^5.0.0, icss-utils@^5.1.0:
   integrity sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==
 
 ignore@^5.1.8, ignore@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.0.tgz#6d3bac8fa7fe0d45d9f9be7bac2fc279577e345a"
-  integrity sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.1.tgz#c2b1f76cb999ede1502f3a226a9310fdfe88d46c"
+  integrity sha512-d2qQLzTJ9WxQftPAuEQpSPmKqzxePjzVbpAVv62AQ64NTL+wR4JkrVqR/LqFsFEUsHDAiId52mJteHDFuDkElA==
 
 import-fresh@^3.0.0, import-fresh@^3.2.1:
   version "3.3.0"
