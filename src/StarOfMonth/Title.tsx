@@ -2,7 +2,10 @@ import {loadFont} from '@remotion/google-fonts/IBMPlexSans';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
 const {fontFamily} = loadFont();
 
-export const Title: React.FC<{name: string}> = ({name}) => {
+export const Title: React.FC<{name: string; fontSizeFactor?: number}> = ({
+	name,
+	fontSizeFactor = 1,
+}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 	const words = name.trim().split(' ');
@@ -11,7 +14,7 @@ export const Title: React.FC<{name: string}> = ({name}) => {
 		<h1
 			style={{
 				fontFamily,
-				fontSize: videoConfig.width / 8,
+				fontSize: videoConfig.width / 8 / fontSizeFactor,
 				fontWeight: 'bold',
 				color: '#ffffff',
 			}}

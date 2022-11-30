@@ -2,9 +2,10 @@ import {loadFont} from '@remotion/google-fonts/IBMPlexSans';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 const {fontFamily} = loadFont();
 
-export const Achievements: React.FC<{achievements: string}> = ({
-	achievements,
-}) => {
+export const Achievements: React.FC<{
+	achievements: string;
+	fontSizeFactor?: number;
+}> = ({achievements, fontSizeFactor = 1}) => {
 	const frame = useCurrentFrame();
 	const videoConfig = useVideoConfig();
 
@@ -12,7 +13,7 @@ export const Achievements: React.FC<{achievements: string}> = ({
 		<p
 			style={{
 				fontFamily,
-				fontSize: videoConfig.width / 25,
+				fontSize: videoConfig.width / 25 / fontSizeFactor,
 				color: '#ffffff',
 				position: 'absolute',
 				bottom: 0,

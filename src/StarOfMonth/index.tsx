@@ -9,20 +9,24 @@ export const StarOfMonth: React.FC<{
 	name: string;
 	image: string;
 	achievements: string;
-}> = ({name, image, achievements}) => {
+	fontSizeFactor?: number;
+}> = ({name, image, achievements, fontSizeFactor = 1}) => {
 	return (
 		<Container>
 			<Sequence>
 				<Image image={image} />
 			</Sequence>
 			<Sequence>
-				<Title name={name} />
+				<Title name={name} fontSizeFactor={fontSizeFactor} />
 			</Sequence>
 			<Sequence>
 				<BottomOverlay />
 			</Sequence>
 			<Sequence from={80}>
-				<Achievements achievements={achievements} />
+				<Achievements
+					achievements={achievements}
+					fontSizeFactor={fontSizeFactor}
+				/>
 			</Sequence>
 		</Container>
 	);

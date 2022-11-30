@@ -1,8 +1,9 @@
 import {Composition, registerRoot} from 'remotion';
 import {StarOfMonth} from './StarOfMonth';
+import {StarOfMonthGrid} from './StarOfMonthGrid';
 
 export const RemotionRoot: React.FC = () => {
-	const size = 512;
+	const size = 1024;
 
 	return (
 		<>
@@ -14,11 +15,50 @@ export const RemotionRoot: React.FC = () => {
 				width={size}
 				height={size}
 				defaultProps={{
-					name: 'John Doe',
-					image:
-						'https://st.depositphotos.com/1597387/1984/i/600/depositphotos_19841901-stock-photo-asian-young-business-man-close.jpg',
+					name: 'Hannibal Hargraves',
+					image: 'https://xsgames.co/randomusers/assets/avatars/male/71.jpg',
 					achievements:
 						'Achievement A | Achievement B | Achievement C | Achievement D | Achievement E | Achievement F',
+				}}
+			/>
+			<Composition
+				id="StarOfMonthGrid"
+				component={StarOfMonthGrid}
+				durationInFrames={500}
+				fps={60}
+				width={size * 2}
+				height={size * 2}
+				defaultProps={{
+					stars: [
+						{
+							name: 'Addison Alexander',
+							image:
+								'https://xsgames.co/randomusers/assets/avatars/male/37.jpg',
+							achievements:
+								'Achievement A | Achievement B | Achievement C | Achievement D | Achievement E | Achievement F',
+						},
+						{
+							name: 'Christian Medina',
+							image:
+								'https://xsgames.co/randomusers/assets/avatars/female/56.jpg',
+							achievements:
+								'Achievement A | Achievement B | Achievement C | Achievement D | Achievement E | Achievement F',
+						},
+						{
+							name: 'Stephen Maldonado',
+							image:
+								'https://xsgames.co/randomusers/assets/avatars/male/13.jpg',
+							achievements:
+								'Achievement A | Achievement B | Achievement C | Achievement D | Achievement E | Achievement F',
+						},
+						{
+							name: 'Prudence Knowles							',
+							image:
+								'https://xsgames.co/randomusers/assets/avatars/female/67.jpg',
+							achievements:
+								'Achievement A | Achievement B | Achievement C | Achievement D | Achievement E | Achievement F',
+						},
+					],
 				}}
 			/>
 		</>
