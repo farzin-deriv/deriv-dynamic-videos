@@ -4,8 +4,9 @@
 	"description": "My Remotion video",
 	"scripts": {
 		"start": "remotion preview",
-		"build:video": "remotion render StarOfMonth out/result.mp4",
-		"build:gif": "remotion render StarOfMonth out/result.gif --codec=gif --every-nth-frame=2",
+		"build:video": "f () { remotion render $1 out/result.mp4 ;}; f",
+		"build:gif": "f () { remotion render $1 out/result.gif --codec=gif --every-nth-frame=2 ;}; f",
+		"build:thumbnail": "f () { remotion still $1 out/result.jpeg --image-format=jpeg --frame=475 ;}; f",
 		"upgrade": "remotion upgrade",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
 	},

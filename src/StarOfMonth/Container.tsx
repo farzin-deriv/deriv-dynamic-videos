@@ -21,7 +21,7 @@ export const Container: React.FC<React.PropsWithChildren> = ({children}) => {
 	);
 
 	return (
-		<AbsoluteFill style={{backgroundColor: '#0e0e0e'}}>
+		<AbsoluteFill style={{backgroundColor: '#0e0e0e', overflow: 'hidden'}}>
 			<AbsoluteFill style={{opacity}}>{children}</AbsoluteFill>
 		</AbsoluteFill>
 	);

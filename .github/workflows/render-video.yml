@@ -28,13 +28,18 @@ jobs:
       - run: echo $WORKFLOW_INPUT > input-props.json
         env:
           WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
-      - run: npm run build:video -- --props="./input-props.json"
+      - run: npm run build:video StarOfMonth -- --props="./input-props.json"
       - uses: actions/upload-artifact@v2
         with:
           name: result.mp4
           path: out/result.mp4
-      - run: npm run build:gif -- --props="./input-props.json"
+      - run: npm run build:gif StarOfMonth -- --props="./input-props.json"
       - uses: actions/upload-artifact@v2
         with:
           name: result.gif
           path: out/result.gif
+      - run: npm run build:thumbnail StarOfMonth -- --props="./input-props.json"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: result.jpeg
+          path: out/result.jpeg
