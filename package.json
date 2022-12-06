@@ -4,9 +4,10 @@
 	"description": "My Remotion video",
 	"scripts": {
 		"start": "remotion preview",
-		"build:video": "f () { remotion render $1 out/result.mp4 ;}; f",
-		"build:gif": "f () { remotion render $1 out/result.gif --codec=gif --every-nth-frame=2 ;}; f",
-		"build:thumbnail": "f () { remotion still $1 out/result.jpeg --image-format=jpeg --frame=475 ;}; f",
+		"build": "f () { yarn build:video $1 $2 && yarn build:gif $1 $2 && yarn build:thumbnail $1 $2 ;}; f",
+		"build:video": "f () { remotion render $1 out/result.mp4 $2 ;}; f",
+		"build:gif": "f () { remotion render $1 out/result.gif $2 --codec=gif --every-nth-frame=2 ;}; f",
+		"build:thumbnail": "f () { remotion still $1 out/result.jpeg $2 --image-format=jpeg --frame=475 ;}; f",
 		"upgrade": "remotion upgrade",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
 	},
