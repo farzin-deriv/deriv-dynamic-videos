@@ -24,11 +24,11 @@ jobs:
       - uses: actions/setup-node@main
       - run: sudo apt update
       - run: sudo apt install ffmpeg
-      - run: npm i
+      - run: yarn
       - run: echo $WORKFLOW_INPUT > input-props.json
         env:
           WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
-      - run: npm run build StarOfMonth --props="./input-props.json"
+      - run: yarn build StarOfMonth --props="./input-props.json"
       - uses: actions/upload-artifact@v2
         with:
           name: result
