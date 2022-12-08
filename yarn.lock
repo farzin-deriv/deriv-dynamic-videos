@@ -2031,6 +2031,11 @@ regexpp@^3.2.0:
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
 
+remotion-animated@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/remotion-animated/-/remotion-animated-1.0.2.tgz#d3618dfdda027c07a07f60efe0367e88d8fe2cd7"
+  integrity sha512-oHSMegrNytt69TrPD/rf8rd5BrBNAWgApXlqPGJdG8C+0OPmgZqQTaCN4Z6IIYWHzkpGaoPP/YoKxUbzb+gJpA==
+
 remotion@3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/remotion/-/remotion-3.3.2.tgz#b0f60346a3f8eb24b0b7919740b6432b90401506"
