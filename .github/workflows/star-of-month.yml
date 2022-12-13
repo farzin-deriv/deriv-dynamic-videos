@@ -25,6 +25,8 @@ jobs:
       - run: echo $WORKFLOW_INPUT > input-props.json
         env:
           WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
+      - run: echo ${{ github.event.inputs }}
+      - run: echo ${{ toJson(github.event.inputs) }}
       - run: cat ./input-props.json
       - run: yarn build ${{ github.workflow }} --props="./input-props.json"
       - uses: actions/upload-artifact@v3.1.1
