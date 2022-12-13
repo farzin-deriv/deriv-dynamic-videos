@@ -1,0 +1,31 @@
+name: StarOfMonth
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Full name"
+        required: true
+      image:
+        description: "Background image URL"
+        required: true
+      achievements:
+        description: "Achievements (pipe separated)"
+        required: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: sudo apt update
+      - run: sudo apt install ffmpeg
+      - run: yarn
+      - run: echo $WORKFLOW_INPUT > input-props.json
+        env:
+          WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
+      - run: yarn build ${{ github.workflow }} --props="./input-props.json"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: result
+          path: out/
