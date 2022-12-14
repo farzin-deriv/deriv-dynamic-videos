@@ -8,33 +8,38 @@ import {WeekNumber} from './WeekNumber';
 type TData = {
 	week: number;
 	date: string;
-	challenges: React.ComponentProps<typeof Description>['items'];
-	accomplishment: React.ComponentProps<typeof Description>['items'];
+	challenges: string;
+	accomplishments: string;
 };
 
-export const WeeklyUpdate: React.FC<{data: TData}> = ({data}) => {
+export const WeeklyUpdate: React.FC<TData> = ({
+	week,
+	date,
+	accomplishments,
+	challenges,
+}) => {
 	return (
 		<AbsoluteFill style={{backgroundColor: '#0e0e0e', overflow: 'hidden'}}>
 			<Sequence>
 				<Background />
 			</Sequence>
 			<Sequence>
-				<WeekNumber week={data.week} />
+				<WeekNumber week={week} />
 			</Sequence>
 			<Sequence>
-				<Date date={data.date} />
+				<Date date={date} />
 			</Sequence>
 			<Sequence>
-				<Title title="Accomplishment" />
+				<Title title="Accomplishments" />
 			</Sequence>
 			<Sequence>
-				<Description items={data.accomplishment} />
+				<Description items={JSON.parse(accomplishments)} />
 			</Sequence>
 			<Sequence from={300}>
 				<Title title="Challenges" />
 			</Sequence>
 			<Sequence from={300}>
-				<Description items={data.challenges} />
+				<Description items={JSON.parse(challenges)} />
 			</Sequence>
 		</AbsoluteFill>
 	);

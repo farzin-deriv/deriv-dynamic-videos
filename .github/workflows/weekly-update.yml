@@ -1,0 +1,38 @@
+name: WeeklyUpdate
+on:
+  workflow_dispatch:
+    inputs:
+      filename:
+        description: "Artifact name"
+        required: true
+      week:
+        description: "The number of the week in the month"
+        required: true
+      date:
+        description: "The date of the update"
+        required: true
+      accomplishments:
+        description: "List of accomplishments"
+        required: true
+      challenges:
+        description: "List of challenges"
+        required: true
+
+jobs:
+  render:
+    name: Render
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: sudo apt update
+      - run: sudo apt install ffmpeg
+      - run: yarn
+      - run: echo $WORKFLOW_INPUT > input-props.json
+        env:
+          WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
+      - run: yarn build ${{ github.workflow }} --props="./input-props.json"
+      - uses: actions/upload-artifact@v3.1.1
+        with:
+          name: ${{ github.event.inputs.filename }}
+          path: out/
