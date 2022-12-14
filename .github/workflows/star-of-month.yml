@@ -28,5 +28,5 @@ jobs:
       - run: yarn build ${{ github.workflow }} --props="./input-props.json"
       - uses: actions/upload-artifact@v3.1.1
         with:
-          name: result
+          name: ${{ toJson(github.event.inputs).name }}
           path: out/
