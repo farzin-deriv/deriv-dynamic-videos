@@ -1,18 +1,12 @@
-name: StarOfMonth
+name: StarOfMonthGrid
 on:
   workflow_dispatch:
     inputs:
       filename:
         description: "Artifact name"
         required: true
-      name:
-        description: "Full name"
-        required: true
-      image:
-        description: "Background image URL"
-        required: true
-      achievements:
-        description: "Achievements"
+      stars:
+        description: "A list of stars with the name, image, and achievements"
         required: true
 
 jobs:
