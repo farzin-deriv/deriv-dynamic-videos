@@ -3,7 +3,7 @@ import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 const {fontFamily} = loadFont();
 
 export const Achievements: React.FC<{
-	achievements: string;
+	achievements: string[];
 	fontSizeFactor?: number;
 }> = ({achievements, fontSizeFactor = 1}) => {
 	const frame = useCurrentFrame();
@@ -19,7 +19,7 @@ export const Achievements: React.FC<{
 				bottom: 0,
 			}}
 		>
-			{achievements.split('|').map((achievement, index) => {
+			{achievements.map((achievement, index) => {
 				const delay = index * 25;
 
 				const translation = interpolate(

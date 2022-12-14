@@ -1,5 +1,6 @@
 import {Composition, registerRoot} from 'remotion';
 import {StarOfMonth} from './StarOfMonth';
+import StarOfMonthMock from './StarOfMonth/mock.json';
 import {StarOfMonthGrid} from './StarOfMonthGrid';
 import {WeeklyUpdate} from './WeeklyUpdate';
 
@@ -15,13 +16,7 @@ export const RemotionRoot: React.FC = () => {
 				fps={60}
 				width={size}
 				height={size}
-				defaultProps={{
-					name: 'Hannibal Hargraves',
-					image:
-						'https://img.freepik.com/premium-photo/cheeky-young-outgoing-handsome-bearded-man-enjoying-awesome-party-inviting-come-checkout-event-pointing-left-recommend-visit-corporate-site-showing-banner-smiling-amused-white-background_176420-55530.jpg?w=2000',
-					achievements:
-						'Lorem ipsum consectetur adipiscing elit | Sed do eiusmod tempor incididunt | Vulputate dignissim suspendisse | Lobortis scelerisque fermentum duiD | Vitae suscipit tellus mauris a diam maecenas',
-				}}
+				defaultProps={StarOfMonthMock}
 			/>
 			<Composition
 				id="StarOfMonthGrid"

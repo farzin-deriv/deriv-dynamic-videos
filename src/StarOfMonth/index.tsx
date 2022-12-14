@@ -24,7 +24,7 @@ export const StarOfMonth: React.FC<{
 			</Sequence>
 			<Sequence from={80}>
 				<Achievements
-					achievements={achievements}
+					achievements={JSON.parse(achievements)}
 					fontSizeFactor={fontSizeFactor}
 				/>
 			</Sequence>
