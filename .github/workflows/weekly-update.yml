@@ -31,7 +31,7 @@ jobs:
       - run: echo $WORKFLOW_INPUT > input-props.json
         env:
           WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
-      - run: yarn build ${{ github.workflow }} --props="./input-props.json 140 400 700"
+      - run: yarn build ${{ github.workflow }} --props="./input-props.json" 140 400 700
       - uses: actions/upload-artifact@v3.1.1
         with:
           name: ${{ github.event.inputs.filename }}
