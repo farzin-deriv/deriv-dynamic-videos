@@ -4,7 +4,7 @@
 	"description": "My Remotion video",
 	"scripts": {
 		"start": "remotion preview",
-		"build": "f () { yarn build:video $1 $2 && yarn build:gif $1 $2 && for i in $@; do yarn build:thumbnail $1 $2 $i; done ;}; f",
+		"build": "f () { yarn build:video $1 $2 && yarn build:gif $1 $2 && for i in ${@:3}; do yarn build:thumbnail $1 $2 $i; done ;}; f",
 		"build:video": "f () { remotion render $1 out/video.mp4 $2 ;}; f",
 		"build:gif": "f () { remotion render $1 out/loop.gif $2 --codec=gif --every-nth-frame=2 ;}; f",
 		"build:thumbnail": "f () { remotion still $1 \"out/frame-${3}.jpeg\" $2 --image-format=jpeg --frame=$3 ;}; f",
