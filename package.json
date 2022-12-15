@@ -4,7 +4,7 @@
 	"description": "My Remotion video",
 	"scripts": {
 		"start": "remotion preview",
-		"build": "f () { for i in $@; do echo $i; done ;}; f",
+		"build": "f () { for i in \"${@:3}\"; do echo $i; done ;}; f",
 		"build:video": "f () { remotion render $1 out/video.mp4 $2 ;}; f",
 		"build:gif": "f () { remotion render $1 out/loop.gif $2 --codec=gif --every-nth-frame=2 ;}; f",
 		"build:thumbnail": "f () { remotion still $1 \"out/frame-${3}.jpeg\" $2 --image-format=jpeg --frame=$3 ;}; f",
