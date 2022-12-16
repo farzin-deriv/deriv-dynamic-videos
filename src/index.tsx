@@ -1,4 +1,6 @@
 import {Composition, registerRoot} from 'remotion';
+import {RoadMap} from './RoadMap';
+import RoadMapMock from './RoadMap/mock.json';
 import {StarOfMonth} from './StarOfMonth';
 import StarOfMonthMock from './StarOfMonth/mock.json';
 import {StarOfMonthGrid} from './StarOfMonthGrid';
@@ -37,6 +39,15 @@ export const RemotionRoot: React.FC = () => {
 				width={size}
 				height={size}
 				defaultProps={WeeklyUpdateMock}
+			/>
+			<Composition
+				id="RoadMap"
+				component={RoadMap}
+				durationInFrames={540}
+				fps={60}
+				width={size}
+				height={size}
+				defaultProps={RoadMapMock}
 			/>
 		</>
 	);
