@@ -1,14 +1,15 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
+import colors from '../colors';
 import {StarOfMonth} from '../StarOfMonth';
 import {GridBox} from './GridBox';
 
-export const StarOfMonthGrid: React.FC<{stars: string}> = ({stars}) => {
+export const StarOfMonthGrid: TSequence<{stars: string}> = ({stars}) => {
 	const data = JSON.parse(stars);
 	const factor = Math.ceil(Math.sqrt(data.length));
 
 	return (
-		<AbsoluteFill style={{backgroundColor: '#0e0e0e'}}>
+		<AbsoluteFill style={{backgroundColor: colors.background}}>
 			<div
 				style={{
 					display: 'flex',
@@ -33,3 +34,5 @@ export const StarOfMonthGrid: React.FC<{stars: string}> = ({stars}) => {
 		</AbsoluteFill>
 	);
 };
+
+StarOfMonthGrid.duration = StarOfMonth.duration;
