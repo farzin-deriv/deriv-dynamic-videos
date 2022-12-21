@@ -4,6 +4,7 @@ import {FadeTransition} from '../transitions';
 import {AchievementsSequence} from './AchievementsSequence';
 import {BottomOverlaySequence} from './BottomOverlaySequence';
 import {ImageSequence} from './ImageSequence';
+import mock from './mock.json';
 import {NameSequence} from './NameSequence';
 
 const duration = 500;
@@ -33,3 +34,4 @@ export const StarOfMonth: TSequence<{
 };
 
 StarOfMonth.duration = duration;
+StarOfMonth.mock = mock;

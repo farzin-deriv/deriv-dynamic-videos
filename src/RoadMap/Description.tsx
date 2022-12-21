@@ -38,8 +38,8 @@ export const Description: React.FC<{items: string[]}> = ({items}) => {
 						marginLeft,
 					}}
 				>
-					{items.map((item) => (
-						<p style={{margin: 0}}>{`- ${item}`}</p>
+					{items.map((item, index) => (
+						<p key={index} style={{margin: 0}}>{`- ${item}`}</p>
 					))}
 				</p>
 			</Animated>

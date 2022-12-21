@@ -4,6 +4,8 @@ module '@remotion/google-fonts/IBMPlexSans' {
 
 type TSequence<T = unknown> = React.FC<T & {delay?: number}> & {
 	duration: number;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	mock?: any;
 };
 
 type TTransition<T = unknown> = React.FC<

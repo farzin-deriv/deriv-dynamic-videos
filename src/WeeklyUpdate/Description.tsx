@@ -46,9 +46,10 @@ export const Description: React.FC<{items: TItem[]}> = ({items}) => {
 						marginLeft,
 					}}
 				>
-					{titles.map((title) => {
-						const descriptions = grouped[title].map((item) => (
+					{titles.map((title, index) => {
+						const descriptions = grouped[title].map((item, index) => (
 							<p
+								key={index}
 								style={{margin: 0, fontSize: fontSize - 2}}
 							>{`- ${item.description}`}</p>
 						));
@@ -56,6 +57,7 @@ export const Description: React.FC<{items: TItem[]}> = ({items}) => {
 						return (
 							<>
 								<p
+									key={index}
 									style={{fontWeight: 'bold', margin: 0, marginTop: 12}}
 								>{`${title}`}</p>
 								{descriptions}

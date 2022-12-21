@@ -1,12 +1,10 @@
 import {Composition, registerRoot} from 'remotion';
+import {MonthlyUpdate} from './MonthlyUpdate';
 import {RoadMap} from './RoadMap';
 import RoadMapMock from './RoadMap/mock.json';
 import {StarOfMonth} from './StarOfMonth';
-import StarOfMonthMock from './StarOfMonth/mock.json';
 import {StarOfMonthGrid} from './StarOfMonthGrid';
-import StarOfMonthGridMock from './StarOfMonthGrid/mock.json';
 import {WeeklyUpdate} from './WeeklyUpdate';
-import WeeklyUpdateMock from './WeeklyUpdate/mock.json';
 
 export const RemotionRoot: React.FC = () => {
 	const size = 1024;
@@ -14,31 +12,40 @@ export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<Composition
-				id="StarOfMonth"
-				component={StarOfMonth}
-				durationInFrames={500}
+				id={MonthlyUpdate.name}
+				component={MonthlyUpdate}
+				durationInFrames={MonthlyUpdate.duration}
+				defaultProps={MonthlyUpdate.mock}
 				fps={60}
 				width={size}
 				height={size}
-				defaultProps={StarOfMonthMock}
 			/>
 			<Composition
-				id="StarOfMonthGrid"
+				id={StarOfMonth.name}
+				component={StarOfMonth}
+				durationInFrames={StarOfMonth.duration}
+				defaultProps={StarOfMonth.mock}
+				fps={60}
+				width={size}
+				height={size}
+			/>
+			<Composition
+				id={StarOfMonthGrid.name}
 				component={StarOfMonthGrid}
-				durationInFrames={500}
+				durationInFrames={StarOfMonthGrid.duration}
+				defaultProps={StarOfMonthGrid.mock}
 				fps={60}
 				width={size * 2}
 				height={size * 2}
-				defaultProps={StarOfMonthGridMock}
 			/>
 			<Composition
-				id="WeeklyUpdate"
+				id={WeeklyUpdate.name}
 				component={WeeklyUpdate}
-				durationInFrames={900}
+				durationInFrames={WeeklyUpdate.duration}
+				defaultProps={WeeklyUpdate.mock}
 				fps={60}
 				width={size}
 				height={size}
-				defaultProps={WeeklyUpdateMock}
 			/>
 			<Composition
 				id="RoadMap"

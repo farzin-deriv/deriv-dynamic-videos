@@ -27,7 +27,12 @@ export const AchievementsSequence: React.FC<{
 					const delay = index * 25;
 
 					return (
-						<FadeTransition absolute={false} delay={delay} hasFadeOut={false}>
+						<FadeTransition
+							key={index}
+							absolute={false}
+							delay={delay}
+							hasFadeOut={false}
+						>
 							<MoveTransition
 								absolute={false}
 								initialX={-videoConfig.width}
@@ -35,7 +40,6 @@ export const AchievementsSequence: React.FC<{
 								delay={delay}
 							>
 								<span
-									key={achievement.trim()}
 									style={{
 										width: '100%',
 										marginLeft: 10,

@@ -3,9 +3,10 @@ import {AbsoluteFill} from 'remotion';
 import colors from '../colors';
 import {StarOfMonth} from '../StarOfMonth';
 import {GridBox} from './GridBox';
+import mock from './mock.json';
 
 export const StarOfMonthGrid: TSequence<{stars: string}> = ({stars}) => {
-	const data = JSON.parse(stars);
+	const data: React.ComponentProps<typeof StarOfMonth>[] = JSON.parse(stars);
 	const factor = Math.ceil(Math.sqrt(data.length));
 
 	return (
@@ -20,8 +21,8 @@ export const StarOfMonthGrid: TSequence<{stars: string}> = ({stars}) => {
 					alignContent: 'center',
 				}}
 			>
-				{data.map((star: React.ComponentProps<typeof StarOfMonth>) => (
-					<GridBox boxFactor={factor}>
+				{data.map((star, index) => (
+					<GridBox key={index} boxFactor={factor}>
 						<StarOfMonth
 							name={star.name}
 							image={star.image}
@@ -36,3 +37,4 @@ export const StarOfMonthGrid: TSequence<{stars: string}> = ({stars}) => {
 };
 
 StarOfMonthGrid.duration = StarOfMonth.duration;
+StarOfMonthGrid.mock = mock;

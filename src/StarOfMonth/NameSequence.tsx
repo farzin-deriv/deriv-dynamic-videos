@@ -23,9 +23,8 @@ export const NameSequence: React.FC<{
 				}}
 			>
 				{words.map((word, index) => (
-					<ScaleTransition absolute={false} delay={index * 5}>
+					<ScaleTransition key={index} absolute={false} delay={index * 5}>
 						<span
-							key={word}
 							style={{
 								marginLeft: 10,
 								marginRight: 10,
