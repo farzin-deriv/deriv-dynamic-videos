@@ -1,33 +1,35 @@
-import {Sequence} from 'remotion';
-import {Achievements} from './Achievements';
-import {BottomOverlay} from './BottomOverlay';
-import {Container} from './Container';
-import {Image} from './Image';
-import {Title} from './Title';
+import {AbsoluteFill} from 'remotion';
+import colors from '../colors';
+import {FadeTransition} from '../transitions';
+import {AchievementsSequence} from './AchievementsSequence';
+import {BottomOverlaySequence} from './BottomOverlaySequence';
+import {ImageSequence} from './ImageSequence';
+import {NameSequence} from './NameSequence';
 
-export const StarOfMonth: React.FC<{
+const duration = 500;
+
+export const StarOfMonth: TSequence<{
 	name: string;
 	image: string;
 	achievements: string;
 	fontSizeFactor?: number;
 }> = ({name, image, achievements, fontSizeFactor = 1}) => {
 	return (
-		<Container>
-			<Sequence>
-				<Image image={image} />
-			</Sequence>
-			<Sequence>
-				<Title name={name} fontSizeFactor={fontSizeFactor} />
-			</Sequence>
-			<Sequence>
-				<BottomOverlay />
-			</Sequence>
-			<Sequence from={80}>
-				<Achievements
+		<AbsoluteFill
+			style={{backgroundColor: colors.background, overflow: 'hidden'}}
+		>
+			<FadeTransition duration={duration} color={colors.background}>
+				<ImageSequence image={image} />
+				<NameSequence name={name} fontSizeFactor={fontSizeFactor} />
+				<BottomOverlaySequence delay={25} />
+				<AchievementsSequence
+					delay={80}
 					achievements={JSON.parse(achievements)}
 					fontSizeFactor={fontSizeFactor}
 				/>
-			</Sequence>
-		</Container>
+			</FadeTransition>
+		</AbsoluteFill>
 	);
 };
+
+StarOfMonth.duration = duration;
