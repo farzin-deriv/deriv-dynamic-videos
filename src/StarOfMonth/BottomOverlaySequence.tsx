@@ -2,12 +2,15 @@ import {Sequence, useVideoConfig} from 'remotion';
 import colors from '../colors';
 import {MoveTransition} from '../transitions';
 
-export const BottomOverlaySequence: React.FC<{delay?: number}> = ({delay}) => {
+export const BottomOverlaySequence: React.FC<{
+	delay?: number;
+	fontSizeFactor?: number;
+}> = ({delay, fontSizeFactor = 1}) => {
 	const videoConfig = useVideoConfig();
 
 	return (
 		<Sequence name="Overlay" from={delay}>
-			<MoveTransition y={-(videoConfig.height / 2)}>
+			<MoveTransition y={-(videoConfig.height / (fontSizeFactor * 2))}>
 				<div
 					style={{
 						position: 'absolute',

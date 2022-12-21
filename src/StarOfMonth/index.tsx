@@ -21,7 +21,7 @@ export const StarOfMonth: TSequence<{
 			<FadeTransition duration={duration} color={colors.background}>
 				<ImageSequence image={image} />
 				<NameSequence name={name} fontSizeFactor={fontSizeFactor} />
-				<BottomOverlaySequence delay={25} />
+				<BottomOverlaySequence delay={25} fontSizeFactor={fontSizeFactor} />
 				<AchievementsSequence
 					delay={80}
 					achievements={JSON.parse(achievements)}
