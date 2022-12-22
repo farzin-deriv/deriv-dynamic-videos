@@ -1,46 +1,44 @@
 import {AbsoluteFill, Sequence} from 'remotion';
+import colors from '../colors';
+import {FadeTransition, TitleTransition} from '../transitions';
 import {Background} from './Background';
-import {Date} from './Date';
 import {Description} from './Description';
-import {Title} from './Title';
-import {WeekNumber} from './WeekNumber';
+import mock from './mock.json';
+import {TitleSequence} from './TitleSequence';
 
-type TData = {
+const duration = 900;
+
+export const WeeklyUpdate: TSequence<{
 	week: number;
 	date: string;
 	challenges: string;
 	accomplishments: string;
-};
-
-export const WeeklyUpdate: React.FC<TData> = ({
-	week,
-	date,
-	accomplishments,
-	challenges,
-}) => {
+}> = ({week, date, accomplishments, challenges}) => {
 	return (
-		<AbsoluteFill style={{backgroundColor: '#0e0e0e', overflow: 'hidden'}}>
+		<AbsoluteFill
+			style={{backgroundColor: colors.background, overflow: 'hidden'}}
+		>
 			<Sequence>
 				<Background />
 			</Sequence>
-			<Sequence>
-				<WeekNumber week={week} />
-			</Sequence>
-			<Sequence>
-				<Date date={date} />
-			</Sequence>
-			<Sequence>
-				<Title title="Accomplishments" />
-			</Sequence>
+			<FadeTransition duration={200} color={colors.primary}>
+				<TitleTransition
+					duration={200}
+					title={`Week #${week}`}
+					subtitle={date}
+				/>
+			</FadeTransition>
+			<TitleSequence delay={250} title="Accomplishments" />
 			<Sequence>
 				<Description items={JSON.parse(accomplishments)} />
 			</Sequence>
-			<Sequence from={300}>
-				<Title title="Challenges" />
-			</Sequence>
+			<TitleSequence delay={550} title="Challenges" />
 			<Sequence from={300}>
 				<Description items={JSON.parse(challenges)} />
 			</Sequence>
 		</AbsoluteFill>
 	);
 };
+
+WeeklyUpdate.duration = duration;
+WeeklyUpdate.mock = mock;
