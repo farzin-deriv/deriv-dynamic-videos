@@ -1,0 +1,35 @@
+name: MonthlyUpdate
+on:
+  workflow_dispatch:
+    inputs:
+      filename:
+        description: "Artifact name"
+        required: true
+      stars:
+        description: "List of stars of the month"
+        required: true
+      weeks:
+        description: "List of weekly updates"
+        required: true
+      roads:
+        description: "List of roads ahead"
+        required: true
+
+jobs:
+  render:
+    name: Render
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: sudo apt update
+      - run: sudo apt install ffmpeg
+      - run: yarn
+      - run: echo $WORKFLOW_INPUT > input-props.json
+        env:
+          WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
+      - run: yarn build ${{ github.workflow }} --props="./input-props.json" 100 350 600 900 1250 1500 1800 2150 2400 2700 3050 3300 3600 3950 4200 4550 4900 5400 5900 6400
+      - uses: actions/upload-artifact@v3.1.1
+        with:
+          name: ${{ github.event.inputs.filename }}
+          path: out/

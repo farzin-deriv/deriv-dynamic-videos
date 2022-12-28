@@ -50,7 +50,7 @@ export const Description: React.FC<{items: TItem[]}> = ({items}) => {
 						const descriptions = grouped[title].map((item, index) => (
 							<p
 								key={index}
-								style={{margin: 0, fontSize: fontSize - 2}}
+								style={{margin: 0, fontSize: fontSize - 2, opacity: 0.6}}
 							>{`- ${item.description}`}</p>
 						));
 
