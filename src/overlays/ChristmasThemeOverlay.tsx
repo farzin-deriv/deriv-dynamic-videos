@@ -5,7 +5,7 @@ import {FadeTransition} from '../transitions';
 const speedFactor = 3;
 const frameCount = 159 * speedFactor;
 
-export const ChristmasThemeOverlay: React.FC<{visible: boolean}> = ({
+export const ChristmasThemeOverlay: React.FC<{visible?: boolean}> = ({
 	visible = true,
 }) => {
 	const videoConfig = useVideoConfig();

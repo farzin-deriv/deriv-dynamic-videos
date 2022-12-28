@@ -2,6 +2,7 @@ import {loadFont} from '@remotion/google-fonts/IBMPlexSans';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
 import {Animated, Move, Scale} from 'remotion-animated';
 import colors from '../colors';
+import {ChristmasThemeOverlay} from '../overlays';
 import {FadeTransition} from './FadeTransition';
 
 const {fontFamily} = loadFont();
@@ -38,6 +39,7 @@ export const TitleTransition: React.FC<{
 					{title}
 				</h1>
 			</Animated>
+			<ChristmasThemeOverlay />
 		</FadeTransition>
 	);
 
