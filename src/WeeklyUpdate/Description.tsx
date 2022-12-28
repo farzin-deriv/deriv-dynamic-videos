@@ -58,7 +58,7 @@ export const Description: React.FC<{items: TItem[]}> = ({items}) => {
 							<>
 								<p
 									key={index}
-									style={{fontWeight: 'bold', margin: 0, marginTop: 12}}
+									style={{fontWeight: 'bold', margin: 0, marginTop: 34}}
 								>{`${title}`}</p>
 								{descriptions}
 							</>
