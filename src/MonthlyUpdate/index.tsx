@@ -2,6 +2,7 @@ import {AbsoluteFill} from 'remotion';
 import colors from '../colors';
 import {StarOfMonth} from '../StarOfMonth';
 import {WeeklyUpdate} from '../WeeklyUpdate';
+import {ChristmasThemeOverlay} from './ChristmasThemeOverlay';
 import mock from './mock.json';
 import {RoadMapSequence} from './RoadMapSequence';
 import {StarOfMonthIntroSequence} from './StarOfMonthIntroSequence';
@@ -41,6 +42,7 @@ export const MonthlyUpdate: TSequence<{
 			<RoadMapSequence roads={roads} delay={delay3} />
 			<StarOfMonthIntroSequence delay={delay4} />
 			<StarsOfMonthSequence stars={starsData} delay={delay5} />
+			<ChristmasThemeOverlay visible={false} />
 		</AbsoluteFill>
 	);
 };
