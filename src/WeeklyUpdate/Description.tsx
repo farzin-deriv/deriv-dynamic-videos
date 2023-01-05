@@ -24,7 +24,13 @@ export const Description: React.FC<{items: TItem[]}> = ({items}) => {
 	const titles = Object.keys(grouped);
 
 	return (
-		<AbsoluteFill style={{justifyContent: 'flex-end'}}>
+		<AbsoluteFill
+			style={{
+				justifyContent: 'center',
+				height: '75%',
+				marginTop: videoConfig.width / 4,
+			}}
+		>
 			<Animated
 				delay={startDelay}
 				animations={[
