@@ -2,13 +2,15 @@ import {AbsoluteFill, Sequence} from 'remotion';
 import colors from '../colors';
 import {FadeTransition, TitleTransition} from '../transitions';
 import {Background} from './Background';
-import {Description} from './Description';
 import mock from './mock.json';
-import {Title} from './Title';
+import {Point} from './Point';
 
-const duration = 600;
+// Const duration = 600;
+const duration = 230 + 220 * 10;
 
 export const RoadMap: TSequence<{items: string}> = ({items}) => {
+	const data: string[] = JSON.parse(items);
+
 	return (
 		<AbsoluteFill style={{backgroundColor: '#0e0e0e', overflow: 'hidden'}}>
 			<Sequence>
@@ -24,12 +26,21 @@ export const RoadMap: TSequence<{items: string}> = ({items}) => {
 					<TitleTransition duration={200} title="Roads Ahead" />
 				</FadeTransition>
 			</Sequence>
-			<Sequence>
+			{/* <Sequence>
 				<Title />
 			</Sequence>
 			<Sequence>
-				<Description items={JSON.parse(items)} />
-			</Sequence>
+				<Description items={data} />
+			</Sequence> */}
+			{data.map((item, index) => (
+				<Sequence from={220 * (index + 1)} durationInFrames={410}>
+					<Point
+						name={item}
+						index={index + 1}
+						isLast={index === data.length - 1}
+					/>
+				</Sequence>
+			))}
 		</AbsoluteFill>
 	);
 };
