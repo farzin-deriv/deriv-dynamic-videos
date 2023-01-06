@@ -25,9 +25,9 @@ type TData = TWithDuration<{
 export const useWeeksData = (data: string): TData['weeks'] => {
 	const weeks: TWeekData[] = JSON.parse(data);
 
-	const durationIntro = 200;
-	const durationAccomplishments = 350;
-	const durationChallenges = 350;
+	const durationIntro = 250;
+	const durationAccomplishments = 325;
+	const durationChallenges = 325;
 
 	const weeksData = weeks.map((week) => ({
 		...week,
@@ -63,7 +63,7 @@ export const useStarsData = (data: string): TData['stars'] => {
 	const stars: TStarData[] = JSON.parse(data);
 
 	const durationStarIntro = 200;
-	const durationStar = 350;
+	const durationStar = 500;
 
 	const starsData = stars.map((star) => ({
 		...star,
