@@ -10,10 +10,9 @@ const duration = 900;
 
 export const WeeklyUpdate: TSequence<{
 	week: number;
-	date: string;
 	challenges: string;
 	accomplishments: string;
-}> = ({week, date, accomplishments, challenges}) => {
+}> = ({week, accomplishments, challenges}) => {
 	const accomplishmentsData: React.ComponentProps<typeof Description>['items'] =
 		JSON.parse(accomplishments);
 	const challengesData: React.ComponentProps<typeof Description>['items'] =
@@ -27,11 +26,7 @@ export const WeeklyUpdate: TSequence<{
 				<Background />
 			</Sequence>
 			<FadeTransition duration={200} color={colors.primary}>
-				<TitleTransition
-					duration={200}
-					title={`Week #${week}`}
-					subtitle={date}
-				/>
+				<TitleTransition duration={200} title={`Week #${week}`} />
 			</FadeTransition>
 			<TitleSequence delay={250} title="Accomplishments" />
 			<Sequence>

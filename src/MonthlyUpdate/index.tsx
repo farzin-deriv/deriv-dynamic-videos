@@ -22,7 +22,7 @@ export const MonthlyUpdate: React.FC<ReturnType<typeof useData>> = ({
 		<AbsoluteFill
 			style={{backgroundColor: colors.background, overflow: 'hidden'}}
 		>
-			<WeeklyUpdateIntroSequence delay={delay1} />
+			<WeeklyUpdateIntroSequence delay={delay1} date={weeks.weeks[0].date} />
 			<WeeksUpdateSequence delay={delay2} data={weeks} />
 			<RoadMapSequence delay={delay3} data={roads} />
 			<StarOfMonthIntroSequence delay={delay4} />

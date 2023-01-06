@@ -13,7 +13,7 @@ export const TitleTransition: React.FC<{
 	subtitle?: string;
 }> = ({duration, title, subtitle}) => {
 	const videoConfig = useVideoConfig();
-	const fontSize = videoConfig.width / 6;
+	const fontSize = videoConfig.width / 8;
 	const offset = videoConfig.height / 16;
 	const subtitleDelay = 80;
 	const endDelay = duration - 110;
@@ -55,7 +55,7 @@ export const TitleTransition: React.FC<{
 					Scale({by: 0, start: endDelay, mass: 75}),
 				]}
 			>
-				<p style={{fontFamily, fontSize: fontSize / 4, color: colors.text}}>
+				<p style={{fontFamily, fontSize: fontSize / 3.5, color: colors.text}}>
 					{subtitle}
 				</p>
 			</Animated>

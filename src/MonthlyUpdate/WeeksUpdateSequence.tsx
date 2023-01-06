@@ -23,7 +23,6 @@ export const WeeksUpdateSequence: React.FC<{
 				>
 					<WeeklyUpdate
 						week={week.week}
-						date={week.date}
 						accomplishments={JSON.stringify(week.accomplishments)}
 						challenges={JSON.stringify(week.challenges)}
 					/>

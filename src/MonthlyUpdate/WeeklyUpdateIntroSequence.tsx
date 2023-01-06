@@ -4,7 +4,10 @@ import {FadeTransition, TitleTransition} from '../transitions';
 
 const duration = 200;
 
-export const WeeklyUpdateIntroSequence: TSequence = ({delay}) => (
+export const WeeklyUpdateIntroSequence: TSequence<{date: string}> = ({
+	date,
+	delay,
+}) => (
 	<Sequence
 		name="Weekly updates intro"
 		from={delay}
@@ -15,7 +18,11 @@ export const WeeklyUpdateIntroSequence: TSequence = ({delay}) => (
 			color={colors.primary}
 			hasFadeOut={false}
 		>
-			<TitleTransition duration={duration} title="Weekly Updates" />
+			<TitleTransition
+				duration={duration}
+				title="Monthly Update"
+				subtitle={date.charAt(0).toUpperCase() + date.slice(1)}
+			/>
 		</FadeTransition>
 	</Sequence>
 );
