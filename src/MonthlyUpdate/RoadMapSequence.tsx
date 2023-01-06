@@ -1,14 +1,14 @@
 import {AbsoluteFill, Sequence} from 'remotion';
+import {useRoadsData} from '../hooks';
 import {RoadMap} from '../RoadMap';
 
-const {duration} = RoadMap;
-
-export const RoadMapSequence: TSequence<{roads: string}> = ({delay, roads}) => (
+export const RoadMapSequence: React.FC<{
+	delay?: number;
+	data: ReturnType<typeof useRoadsData>;
+}> = ({delay, data}) => (
 	<AbsoluteFill>
-		<Sequence name="" from={delay} durationInFrames={duration}>
-			<RoadMap items={roads} />
+		<Sequence name="Roads ahead" from={delay} durationInFrames={data.duration}>
+			<RoadMap items={JSON.stringify(data.roads)} />
 		</Sequence>
 	</AbsoluteFill>
 );
-
-RoadMapSequence.duration = duration;

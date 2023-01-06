@@ -1,35 +1,21 @@
 import {AbsoluteFill} from 'remotion';
 import colors from '../colors';
-import {StarOfMonth} from '../StarOfMonth';
-import {WeeklyUpdate} from '../WeeklyUpdate';
-import mock from './mock.json';
+import {useData} from '../hooks';
 import {RoadMapSequence} from './RoadMapSequence';
 import {StarOfMonthIntroSequence} from './StarOfMonthIntroSequence';
 import {StarsOfMonthSequence} from './StarsOfMonthSequence';
 import {WeeklyUpdateIntroSequence} from './WeeklyUpdateIntroSequence';
 import {WeeksUpdateSequence} from './WeeksUpdateSequence';
 
-const duration =
-	WeeklyUpdateIntroSequence.duration +
-	WeeksUpdateSequence.duration * 4 +
-	RoadMapSequence.duration +
-	StarOfMonthIntroSequence.duration +
-	StarsOfMonthSequence.duration * 4;
-
-export const MonthlyUpdate: TSequence<{
-	stars: string;
-	weeks: string;
-	roads: string;
-}> = ({stars, weeks, roads}) => {
-	const starsData: React.ComponentProps<typeof StarOfMonth>[] =
-		JSON.parse(stars);
-	const weeksData: React.ComponentProps<typeof WeeklyUpdate>[] =
-		JSON.parse(weeks);
-
+export const MonthlyUpdate: React.FC<ReturnType<typeof useData>> = ({
+	stars,
+	weeks,
+	roads,
+}) => {
 	const delay1 = 0;
 	const delay2 = delay1 + WeeklyUpdateIntroSequence.duration;
-	const delay3 = delay2 + WeeksUpdateSequence.duration * weeksData.length;
-	const delay4 = delay3 + RoadMapSequence.duration;
+	const delay3 = delay2 + weeks.duration;
+	const delay4 = delay3 + roads.duration;
 	const delay5 = delay4 + StarOfMonthIntroSequence.duration;
 
 	return (
@@ -37,13 +23,10 @@ export const MonthlyUpdate: TSequence<{
 			style={{backgroundColor: colors.background, overflow: 'hidden'}}
 		>
 			<WeeklyUpdateIntroSequence delay={delay1} />
-			<WeeksUpdateSequence weeks={weeksData} delay={delay2} />
-			<RoadMapSequence roads={roads} delay={delay3} />
+			<WeeksUpdateSequence delay={delay2} data={weeks} />
+			<RoadMapSequence delay={delay3} data={roads} />
 			<StarOfMonthIntroSequence delay={delay4} />
-			<StarsOfMonthSequence stars={starsData} delay={delay5} />
+			<StarsOfMonthSequence delay={delay5} data={stars} />
 		</AbsoluteFill>
 	);
 };
-
-MonthlyUpdate.duration = duration;
-MonthlyUpdate.mock = mock;

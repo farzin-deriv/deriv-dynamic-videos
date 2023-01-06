@@ -1,29 +1,35 @@
 import {AbsoluteFill, Sequence} from 'remotion';
+import {useStarsData} from '../hooks';
 import {StarOfMonth} from '../StarOfMonth';
 
-const {duration} = StarOfMonth;
-
-export const StarsOfMonthSequence: TSequence<{
-	stars: React.ComponentProps<typeof StarOfMonth>[];
-}> = ({delay, stars}) => {
+export const StarsOfMonthSequence: React.FC<{
+	delay?: number;
+	data: ReturnType<typeof useStarsData>;
+}> = ({delay, data}) => {
 	return (
 		<AbsoluteFill>
-			{stars.map((star, index) => (
-				<Sequence
-					key={index}
-					name={`Star: ${star.name}`}
-					from={(delay || 0) + index * duration}
-					durationInFrames={duration}
-				>
-					<StarOfMonth
-						name={star.name}
-						image={star.image}
-						achievements={JSON.stringify(star.achievements)}
-					/>
-				</Sequence>
-			))}
+			{data.stars.map((star, index) => {
+				const from =
+					(delay || 0) +
+					data.stars
+						.slice(0, index)
+						.reduce((total, star) => total + star.duration, 0);
+
+				return (
+					<Sequence
+						key={index}
+						name={`Star: ${star.name}`}
+						from={from}
+						durationInFrames={star.duration}
+					>
+						<StarOfMonth
+							name={star.name}
+							image={star.image}
+							achievements={JSON.stringify(star.achievements)}
+						/>
+					</Sequence>
+				);
+			})}
 		</AbsoluteFill>
 	);
 };
-
-StarsOfMonthSequence.duration = duration;

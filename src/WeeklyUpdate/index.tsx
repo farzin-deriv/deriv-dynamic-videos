@@ -14,6 +14,11 @@ export const WeeklyUpdate: TSequence<{
 	challenges: string;
 	accomplishments: string;
 }> = ({week, date, accomplishments, challenges}) => {
+	const accomplishmentsData: React.ComponentProps<typeof Description>['items'] =
+		JSON.parse(accomplishments);
+	const challengesData: React.ComponentProps<typeof Description>['items'] =
+		JSON.parse(challenges);
+
 	return (
 		<AbsoluteFill
 			style={{backgroundColor: colors.background, overflow: 'hidden'}}
@@ -30,12 +35,16 @@ export const WeeklyUpdate: TSequence<{
 			</FadeTransition>
 			<TitleSequence delay={250} title="Accomplishments" />
 			<Sequence>
-				<Description items={JSON.parse(accomplishments)} />
+				<Description items={accomplishmentsData} />
 			</Sequence>
-			<TitleSequence delay={550} title="Challenges" />
-			<Sequence from={300}>
-				<Description items={JSON.parse(challenges)} />
-			</Sequence>
+			{challengesData.length > 0 && (
+				<TitleSequence delay={550} title="Challenges" />
+			)}
+			{challengesData.length > 0 && (
+				<Sequence from={300}>
+					<Description items={challengesData} />
+				</Sequence>
+			)}
 		</AbsoluteFill>
 	);
 };

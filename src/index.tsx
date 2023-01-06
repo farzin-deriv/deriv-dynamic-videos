@@ -1,5 +1,5 @@
 import {Composition, registerRoot} from 'remotion';
-import {MonthlyUpdate} from './MonthlyUpdate';
+import {MonthlyUpdateComposition} from './MonthlyUpdate/MonthlyUpdateComposition';
 import {RoadMap} from './RoadMap';
 import {StarOfMonth} from './StarOfMonth';
 import {StarOfMonthGrid} from './StarOfMonthGrid';
@@ -10,15 +10,7 @@ export const RemotionRoot: React.FC = () => {
 
 	return (
 		<>
-			<Composition
-				id={MonthlyUpdate.name}
-				component={MonthlyUpdate}
-				durationInFrames={MonthlyUpdate.duration}
-				defaultProps={MonthlyUpdate.mock}
-				fps={60}
-				width={size}
-				height={size}
-			/>
+			<MonthlyUpdateComposition size={size} />
 			<Composition
 				id={StarOfMonth.name}
 				component={StarOfMonth}

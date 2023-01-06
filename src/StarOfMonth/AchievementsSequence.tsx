@@ -40,12 +40,7 @@ export const AchievementsSequence: React.FC<{
 								delay={delay}
 							>
 								<span
-									style={{
-										width: '100%',
-										marginLeft: 10,
-										marginRight: 10,
-										display: 'inline-block',
-									}}
+									style={{width: '100%', margin: 10, display: 'inline-block'}}
 								>
 									- {achievement.trim()}
 								</span>
