@@ -5,7 +5,7 @@ import {MonthlyUpdate} from './';
 import mock from './mock.json';
 
 const inputs = getInputProps();
-const inputData: typeof mock = Object.keys(inputs).length === 0 ? mock : inputs;
+const inputData = Object.keys(inputs).length === 0 ? mock : inputs;
 
 export const MonthlyUpdateComposition: React.FC<{size: number}> = ({size}) => {
 	const data = useData(JSON.stringify(inputData));
@@ -13,7 +13,14 @@ export const MonthlyUpdateComposition: React.FC<{size: number}> = ({size}) => {
 	return (
 		<Composition
 			id={MonthlyUpdate.name}
-			component={MonthlyUpdate}
+			component={() => (
+				<MonthlyUpdate
+					duration={data.duration}
+					weeks={data.weeks}
+					roads={data.roads}
+					stars={data.stars}
+				/>
+			)}
 			durationInFrames={data.duration}
 			defaultProps={data}
 			fps={60}

@@ -23,7 +23,7 @@ export const RoadMap: TSequence<{items: string}> = ({items}) => {
 					hasFadeOut={false}
 					hasFadeIn={false}
 				>
-					<TitleTransition duration={200} title="Roads Ahead" />
+					<TitleTransition duration={200} title="Road Ahead" />
 				</FadeTransition>
 			</Sequence>
 			{/* <Sequence>
