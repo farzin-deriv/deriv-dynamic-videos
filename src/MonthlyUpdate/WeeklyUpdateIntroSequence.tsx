@@ -20,7 +20,7 @@ export const WeeklyUpdateIntroSequence: TSequence<{date: string}> = ({
 		>
 			<TitleTransition
 				duration={duration}
-				title="Monthly Update"
+				title="Monthly Updates"
 				subtitle={date.charAt(0).toUpperCase() + date.slice(1)}
 			/>
 		</FadeTransition>
